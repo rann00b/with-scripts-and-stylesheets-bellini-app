@@ -1,0 +1,177 @@
+{
+  "type": "custom-component",
+  "name": "my-modal",
+  "children": [
+    {
+      "name": "div",
+      "classList": [
+        "modal-header"
+      ],
+      "children": [
+        {
+          "name": "div",
+          "classList": [
+            "modal-title"
+          ],
+          "children": [
+            {
+              "name": "text",
+              "textContent": "Title",
+              "evaluate": false
+            }
+          ]
+        },
+        {
+          "name": "div",
+          "classList": [
+            "modal-close"
+          ],
+          "events": {
+            "click": "$ctrl.onCancelClick()"
+          },
+          "children": [
+            {
+              "name": "text",
+              "textContent": "×",
+              "evaluate": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "div",
+      "classList": [
+        "modal-body"
+      ],
+      "children": []
+    },
+    {
+      "name": "div",
+      "classList": [
+        "modal-footer"
+      ],
+      "children": [
+        {
+          "name": "Button",
+          "nodeName": "bln-button",
+          "attributes": [
+            {
+              "property": "core",
+              "value": ""
+            }
+          ],
+          "classList": [
+            "btn-cancel"
+          ],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "children": [],
+          "type": "core-component",
+          "id": "button",
+          "expressions": [
+            {
+              "expression": "\"default\"",
+              "to": "type"
+            },
+            {
+              "expression": "'Cancel'",
+              "to": "label"
+            },
+            {
+              "expression": "$ctrl.onCancelClick()",
+              "to": "onClick"
+            }
+          ]
+        },
+        {
+          "name": "Button",
+          "nodeName": "bln-button",
+          "attributes": [
+            {
+              "property": "core",
+              "value": ""
+            }
+          ],
+          "classList": [
+            "btn-ok"
+          ],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "children": [],
+          "type": "core-component",
+          "id": "button",
+          "expressions": [
+            {
+              "expression": "\"primary\"",
+              "to": "type"
+            },
+            {
+              "expression": "'OK'",
+              "to": "label"
+            },
+            {
+              "expression": "$ctrl.onOkClick()",
+              "to": "onClick"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "type": "method",
+      "name": "onOkClick",
+      "description": "This function is called when OK button is clicked.",
+      "body": "$ctrl.result = 'ok'\n$ctrl.onClose()",
+      "parameters": []
+    },
+    {
+      "type": "method",
+      "name": "onCancelClick",
+      "description": "This function is called when Cancel button is clicked.",
+      "body": "$ctrl.result = 'cancel'\n$ctrl.onClose()",
+      "parameters": []
+    }
+  ],
+  "bindings": [
+    {
+      "type": "<",
+      "name": "onClose",
+      "description": "This function should be called to close the modal.",
+      "default": "() => {}",
+      "propertyType": "method"
+    },
+    {
+      "type": "<",
+      "name": "result",
+      "description": "The result of the modal that is returned after the modal is closed.",
+      "default": "",
+      "propertyType": "enum",
+      "enumOptions": [
+        {
+          "value": "ok"
+        },
+        {
+          "value": "cancel"
+        }
+      ]
+    }
+  ],
+  "modules": []
+}

@@ -1,0 +1,5 @@
+{
+  "name": "index.js",
+  "type": "js",
+  "contents": "console.log('my-modal')"
+}
